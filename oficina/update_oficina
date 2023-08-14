@@ -1,0 +1,115 @@
+-- INSERÇÃO DE DADOS TESTE NO BANCO OFICIONA
+
+USE oficina;
+
+-- Inserção de dados na tabela clientes
+INSERT INTO clientes (nome, sobrenome, dataNasc, cpf, cep, enderecoRua, enderecoNumero, enderecoBairro, cidade, estado, telefone)
+VALUES
+    ('João', 'Silva', '1990-05-15', '111111111', '12345678', 'Rua A', '123', 'Centro', 'Cidade A', 'SP', '11111111111'),
+    ('Maria', 'Souza', '1985-08-20', '222222222', '23456789', 'Rua B', '456', 'Bairro X', 'Cidade B', 'RJ', '22222222222'),
+    ('Pedro', 'Oliveira', '2000-02-10', '333333333', '34567890', 'Rua C', '789', 'Bairro Y', 'Cidade C', 'MG', '33333333333'),
+    ('Ana', 'Ribeiro', '1978-11-25', '444444444', '45678901', 'Rua D', '1011', 'Bairro Z', 'Cidade D', 'RS', '44444444444'),
+    ('Lucas', 'Santos', '1995-07-03', '555555555', '56789012', 'Rua E', '1213', 'Centro', 'Cidade E', 'SC', '55555555555'),
+    ('Laura', 'Ferreira', '1998-10-12', '666666666', '67890123', 'Rua F', '1415', 'Bairro W', 'Cidade F', 'SP', '66666666666'),
+    ('Rafael', 'Almeida', '1987-04-30', '777777777', '78901234', 'Rua G', '1617', 'Bairro V', 'Cidade G', 'RJ', '77777777777'),
+    ('Cristina', 'Campos', '2002-09-18', '888888888', '89012345', 'Rua H', '1819', 'Bairro U', 'Cidade H', 'MG', '88888888888'),
+    ('Fernando', 'Costa', '1972-12-05', '999999999', '90123456', 'Rua I', '2021', 'Bairro T', 'Cidade I', 'RS', '99999999999'),
+    ('Amanda', 'Sousa', '1980-06-22', '101010101', '01234567', 'Rua J', '2223', 'Bairro S', 'Cidade J', 'SC', '10101010101');
+
+-- Inserção de dados na tabela carros
+INSERT INTO carros (idCliente, marca, modelo, ano, placa)
+VALUES
+    (1, 'Toyota', 'Corolla', 2020, 'ABC1234'),
+    (2, 'Volkswagen', 'Gol', 2018, 'DEF5678'),
+    (3, 'Fiat', 'Palio', 2015, 'GHI9012'),
+    (4, 'Chevrolet', 'Onix', 2019, 'JKL3456'),
+    (5, 'Ford', 'Fiesta', 2017, 'MNO6789'),
+    (6, 'Renault', 'Clio', 2016, 'PQR0123'),
+    (7, 'Honda', 'Civic', 2021, 'STU3456'),
+    (8, 'Hyundai', 'HB20', 2022, 'VWX6789'),
+    (9, 'Nissan', 'March', 2014, 'YZA0123'),
+    (10, 'Jeep', 'Renegade', 2023, 'BCD3456');
+
+-- Inserção de dados na tabela serviços
+INSERT INTO servicos (descricao, preco)
+VALUES
+    ('Troca de Óleo', 100.00),
+    ('Alinhamento e Balanceamento', 80.00),
+    ('Revisão Completa', 250.00),
+    ('Troca de Filtro de Ar', 30.00),
+    ('Limpeza de Ar-Condicionado', 70.00),
+    ('Troca de Pastilhas de Freio', 120.00),
+    ('Reparo no Sistema de Ignição', 180.00),
+    ('Troca de Correia Dentada', 150.00),
+    ('Polimento e Cristalização', 200.00),
+    ('Recarga de Gás do Ar-Condicionado', 90.00);
+    
+-- Inserção de dados na tabela agendamento
+INSERT INTO agendamentos (idCliente, idCarro, idServico, dataAgendamento, horario, observacoes, status)
+VALUES
+    (1, 1, 2, '2023-08-10', '10:00', 'Fazer alinhamento e balanceamento.', 'Agendado'),
+    (2, 3, 5, '2023-08-12', '15:30', 'Realizar limpeza do ar-condicionado.', 'Agendado'),
+    (3, 2, 1, '2023-08-14', '09:00', 'Troca de óleo e filtro de ar.', 'Agendado'),
+    (4, 5, 7, '2023-08-15', '14:00', 'Reparo no sistema de ignição.', 'Agendado'),
+    (5, 4, 6, '2023-08-18', '11:30', 'Troca de pastilhas de freio.', 'Agendado'),
+    (6, 8, 3, '2023-08-20', '08:00', 'Realizar revisão completa.', 'Agendado'),
+    (7, 7, 9, '2023-08-22', '13:30', 'Polimento e cristalização.', 'Agendado'),
+    (8, 6, 4, '2023-08-25', '10:30', 'Troca de filtro de ar.', 'Agendado'),
+    (9, 10, 10, '2023-08-28', '12:00', 'Recarga de gás do ar-condicionado.', 'Agendado'),
+    (10, 9, 8, '2023-08-30', '16:00', 'Troca de correia dentada.', 'Agendado');
+
+-- Inserção de dados na tabela funcionários
+INSERT INTO funcionarios (nome, sobrenome, dataNasc, cpf, cep, enderecoRua, enderecoNumero, enderecoBairro, cidade, estado, telefone, cargo, salario)
+VALUES
+    ('José', 'Ramos', '1982-03-25', '111111111', '12345678', 'Rua A', '123', 'Centro', 'Cidade A', 'SP', '11111111111', 'Mecânico', 3000.00),
+    ('Maria', 'Lima', '1990-08-15', '222222222', '23456789', 'Rua B', '456', 'Bairro X', 'Cidade B', 'RJ', '22222222222', 'Eletricista', 2800.00),
+    ('Carlos', 'Santos', '1985-05-10', '333333333', '34567890', 'Rua C', '789', 'Bairro Y', 'Cidade C', 'MG', '33333333333', 'Mecânico', 3200.00),
+    ('Ana', 'Ferreira', '1978-12-20', '444444444', '45678901', 'Rua D', '1011', 'Bairro Z', 'Cidade D', 'RS', '44444444444', 'Atendente', 2500.00),
+    ('Ricardo', 'Oliveira', '1995-07-03', '555555555', '56789012', 'Rua E', '1213', 'Centro', 'Cidade E', 'SC', '55555555555', 'Mecânico', 3100.00),
+    ('Laura', 'Pereira', '1998-09-10', '666666666', '67890123', 'Rua F', '1415', 'Bairro W', 'Cidade F', 'SP', '66666666666', 'Eletricista', 2900.00),
+    ('Gustavo', 'Alves', '1987-02-05', '777777777', '78901234', 'Rua G', '1617', 'Bairro V', 'Cidade G', 'RJ', '77777777777', 'Mecânico', 3100.00),
+    ('Lívia', 'Campos', '2002-11-18', '888888888', '89012345', 'Rua H', '1819', 'Bairro U', 'Cidade H', 'MG', '88888888888', 'Atendente', 2400.00),
+    ('Fernando', 'Costa', '1972-10-30', '999999999', '90123456', 'Rua I', '2021', 'Bairro T', 'Cidade I', 'RS', '99999999999', 'Mecânico', 3200.00),
+    ('Amanda', 'Sousa', '1980-06-22', '101010101', '01234567', 'Rua J', '2223', 'Bairro S', 'Cidade J', 'SC', '10101010101', 'Eletricista', 3000.00);
+
+-- Inserção de dados na tabela pedidos
+INSERT INTO pedidos (idAgendamento, dataPedido, status)
+VALUES
+    (1, '2023-08-10', 'Solicitado'),
+    (2, '2023-08-12', 'Solicitado'),
+    (3, '2023-08-14', 'Solicitado'),
+    (4, '2023-08-15', 'Solicitado'),
+    (5, '2023-08-18', 'Solicitado'),
+    (6, '2023-08-20', 'Solicitado'),
+    (7, '2023-08-22', 'Solicitado'),
+    (8, '2023-08-25', 'Solicitado'),
+    (9, '2023-08-28', 'Solicitado'),
+    (10, '2023-08-30', 'Solicitado');
+
+-- Inserção de dados na tabela responsável_pedidos
+INSERT INTO responsavel_pedido (idPedido, idFuncionario, nome, telefone, email)
+VALUES
+    (1, 1, 'José Ramos', '(11) 1111-1111', 'jose@example.com'),
+    (2, 2, 'Maria Lima', '(22) 2222-2222', 'maria@example.com'),
+    (3, 3, 'Carlos Santos', '(33) 3333-3333', 'carlos@example.com'),
+    (4, 4, 'Ana Ferreira', '(44) 4444-4444', 'ana@example.com'),
+    (5, 5, 'Ricardo Oliveira', '(55) 5555-5555', 'ricardo@example.com'),
+    (6, 6, 'Laura Pereira', '(66) 6666-6666', 'laura@example.com'),
+    (7, 7, 'Gustavo Alves', '(77) 7777-7777', 'gustavo@example.com'),
+    (8, 8, 'Lívia Campos', '(88) 8888-8888', 'livia@example.com'),
+    (9, 9, 'Fernando Costa', '(99) 9999-9999', 'fernando@example.com'),
+    (10, 10, 'Amanda Sousa', '(10) 1010-1010', 'amanda@example.com');
+    
+-- Inserção de dados na tabela ordem_servico
+INSERT INTO ordem_servico (idPedido, idFuncionario, descricao, dataInicio, dataConclusao, status)
+VALUES
+    (1, 1, 'Realizar alinhamento e balanceamento.', '2023-08-10', '2023-08-11', 'Concluída'),
+    (2, 2, 'Limpeza do sistema de ar-condicionado.', '2023-08-12', '2023-08-13', 'Concluída'),
+    (3, 3, 'Troca de óleo e filtro de ar.', '2023-08-14', '2023-08-15', 'Concluída'),
+    (4, 4, 'Reparo no sistema de ignição.', '2023-08-15', '2023-08-16', 'Concluída'),
+    (5, 5, 'Troca de pastilhas de freio.', '2023-08-18', '2023-08-19', 'Concluída'),
+    (6, 6, 'Realizar revisão completa.', '2023-08-20', NULL, 'Em Andamento'),
+    (7, 7, 'Polimento e cristalização.', '2023-08-22', NULL, 'Em Andamento'),
+    (8, 8, 'Troca de filtro de ar.', '2023-08-25', NULL, 'Em Andamento'),
+    (9, 9, 'Recarga de gás do ar-condicionado.', '2023-08-28', NULL, 'Em Andamento'),
+    (10, 10, 'Troca de correia dentada.', '2023-08-30', NULL, 'Em Andamento');
