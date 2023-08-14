@@ -1,0 +1,44 @@
+-- CONSULTAS DIVERSAS AO BANCO OFICINA
+USE oficina;
+
+-- Consulta a lista completa de clientes cadastrados
+SELECT * FROM clientes;
+
+-- Consulta a uma Lista de funcionários em ordem alfabética
+SELECT * FROM funcionarios
+ORDER BY nome ASC;
+
+-- Consulta a uma lista de carros japoneses
+SELECT * FROM carros WHERE marca = 'Toyota' OR marca = 'Honda' OR marca = 'Nissan';
+
+-- Consulta a uma lista de serviços com desconto de 10%
+SELECT a.idAgendamento, a.idCliente, a.idServico, s.preco * 0.9 AS preco_com_desconto
+FROM agendamentos a
+JOIN servicos s ON a.idServico = s.idServico;
+
+-- Consulta a uma lista de serviços agendados
+SELECT c.nome, c.sobrenome, a.dataAgendamento, s.descricao
+FROM agendamentos a
+JOIN clientes c ON a.idCliente = c.idCliente
+JOIN servicos s ON a.idServico = s.idServico
+WHERE a.status = 'Agendado';
+
+-- Consulta a contagem de funcionários em cada categoria
+SELECT f.cargo, COUNT(*) AS total_funcionarios
+FROM funcionarios f
+GROUP BY f.cargo;
+
+-- Consulta a uma lista de pedidos concluídos por funcionário
+SELECT f.nome, f.cargo, os.descricao
+FROM funcionarios f
+JOIN ordem_servico os ON f.idFuncionario = os.idFuncionario
+WHERE os.status = 'Concluída';
+
+-- Consulta a uma lista de pedidos solicitados com detalhes do cliente, agendamento e serviço
+SELECT p.idPedido, c.nome, c.sobrenome, s.descricao, rp.nome AS responsavel
+FROM pedidos p
+JOIN agendamentos a ON p.idAgendamento = a.idAgendamento
+JOIN clientes c ON a.idCliente = c.idCliente
+JOIN servicos s ON a.idServico = s.idServico
+LEFT JOIN responsavel_pedido rp ON p.idPedido = rp.idPedido
+WHERE p.status = 'Solicitado';
